@@ -3,8 +3,5 @@
     "ClientID": "443074120758853643",
     "APIKey": null
   },
-  "soundcloud": {
-    "ClientID": "{insert soundcloud client_id}"
-  },
   "uploadArtwork": false
 }
