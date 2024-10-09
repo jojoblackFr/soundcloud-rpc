@@ -1,4 +1,27 @@
 (function(){
+
+  var win = window;
+  var client_id = '';
+  
+  function patchXHR() {
+    var originalXHR = win.XMLHttpRequest.prototype.open;
+    win.XMLHttpRequest.prototype.open = function() {
+        originalXHR.apply(this, arguments);
+        var url = arguments[1];
+        var clientId = parseClientIdFromURL(url);
+        if (clientId) {
+            client_id = clientId;
+            win.XMLHttpRequest.prototype.open = originalXHR;
+        }
+    };
+};
+
+  function parseClientIdFromURL(url) {
+    var search = /client_id=([\w\d]+)&*/;
+    return url && url.match(search) && url.match(search)[1];
+  };
+  patchXHR();
+
   function load_script(url) {
     return new Promise(function (resolve, reject){
       var head = document.getElementsByTagName('head')[0];
@@ -26,12 +49,12 @@
 
       var url = "https://soundcloud.com" + $title.getAttribute("href"),
         pos = parseInt($progress.getAttribute("aria-valuenow"), 10),
-        playing = $play.classList.contains("playing");
+        playing = $play.classList.contains("playing"),
+        clientId = client_id;
 
       if (!playing)
         return;
-
-      socket.emit('activity', { url, pos });
+      socket.emit('activity', { url, pos, clientId });
     }
 
     poll_activity();

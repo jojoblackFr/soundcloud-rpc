@@ -3,13 +3,13 @@ const trace = require('debug')('soundcloud-rp:trace');
 
 module.exports = (config) => {
 
-  function getTrackData(url) {
-    trace('soundcloud.getTrackData', url);
+  function getTrackData(data) {
+    trace('soundcloud.getTrackData', data.url);
 
     return axios.get('https://api-v2.soundcloud.com/resolve', {
       params: {
-        client_id: config.soundcloud.ClientID,
-        url
+        client_id: data.clientId,
+        url: data.url
       }
     }).then(response => response.data);
   }
