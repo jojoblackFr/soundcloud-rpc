@@ -34,9 +34,9 @@
     })
   }
 
-  load_script('http://{{host}}/socket.io/socket.io.js')
+  load_script('https://cdn.socket.io/4.5.4/socket.io.min.js')
   .then(function(){
-    var socket = io.connect('http://{{host}}');
+    var socket = io('http://{{host}}', { transports: ['websocket'] });
     var interval = 10;
 
     function poll_activity() {

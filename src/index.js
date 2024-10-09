@@ -12,7 +12,10 @@ const rpc = require('./rpc')(config);
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  pingTimeout: 30000,
+  pingInterval: 25000
+});
 
 app.use(cors());
 app.use(bodyParser.json());

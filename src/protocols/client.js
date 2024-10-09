@@ -1,5 +1,3 @@
-const { type } = require('express/lib/response');
-
 const trace = require('debug')('soundcloud-rp:trace');
 const debug = require('debug')('soundcloud-rp:client-protocol');
 
@@ -22,8 +20,8 @@ module.exports = function(config, io, rpc) {
       })
     });
 
-    socket.on('disconnect', function(){
-      trace('client.disconnect', socket.id);
+    socket.on('disconnect', (reason) => {
+      trace(`Client disconnected due to: ${reason}`);
     });
   });
 };

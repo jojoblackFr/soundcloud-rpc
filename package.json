@@ -4,12 +4,12 @@
   "description": "Adds Discord Rich Presence support to Soundcloud.",
   "main": "src/index.js",
   "dependencies": {
-    "cors": "^2.8.4",
-    "datauri": "^1.1.0",
+    "cors": "^2.8.5",
+    "datauri": "^4.1.0",
     "discord-rpc": "^4.0.1",
-    "express": "^4.16.3",
-    "hbs": "^4.0.1",
-    "socket.io": "^2.1.1",
+    "express": "^4.21.1",
+    "hbs": "^4.2.0",
+    "socket.io": "^3.0.0",
     "axios": "^1.7.7"
   },
   "devDependencies": {
