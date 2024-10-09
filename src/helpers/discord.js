@@ -1,4 +1,4 @@
-const request = require('request-promise-native');
+const axios = require('axios');
 const trace = require('debug')('soundcloud-rp:trace');
 
 module.exports = (config) => {
@@ -6,38 +6,35 @@ module.exports = (config) => {
   function getAssetList() {
     trace("discord.getAssetList");
 
-    return request.get(`https://discordapp.com/api/oauth2/applications/${config.discord.ClientID}/assets`, {
+    return axios.get(`https://discordapp.com/api/oauth2/applications/${config.discord.ClientID}/assets`, {
       headers: {
-        authorization: config.discord.APIKey
-      },
-      json: true
-    });
+        Authorization: config.discord.APIKey
+      }
+    }).then(response => response.data);
   }
 
   function uploadAsset(type, key, data) {
     trace('discord.uploadAsset', type, key);
 
-    return request.post(`https://discordapp.com/api/oauth2/applications/${config.discord.ClientID}/assets`, {
+    return axios.post(`https://discordapp.com/api/oauth2/applications/${config.discord.ClientID}/assets`, {
+      name: key,
+      type: type,
+      image: data
+    }, {
       headers: {
-        authorization: config.discord.APIKey
-      },
-      json: true,
-      body: {
-        name: key,
-        type: type,
-        image: data
+        Authorization: config.discord.APIKey
       }
-    })
+    }).then(response => response.data);
   }
 
   function deleteAsset(id) {
     trace('discord.deleteAsset', id);
 
-    return request.delete(`https://discordapp.com/api/oauth2/applications/${config.discord.ClientID}/assets/${id}`, {
+    return axios.delete(`https://discordapp.com/api/oauth2/applications/${config.discord.ClientID}/assets/${id}`, {
       headers: {
-        authorization: config.discord.APIKey
+        Authorization: config.discord.APIKey
       }
-    })
+    }).then(response => response.data);
   }
 
   return {
@@ -45,4 +42,4 @@ module.exports = (config) => {
     uploadAsset,
     deleteAsset
   };
-}
+};
