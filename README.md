@@ -11,6 +11,15 @@ It is a combination of a server, communicating with discord itself, and a user-s
 
 Artwork upload is not available by default due to Discord's asset limit (150). In order to activate it, you need to create a new app on the developer interface, and set the new ClientID and your APIKey of the developer interface. More details at **[Artwork Upload](#artwork-upload)**.
 
+## Fork Info
+
+My goal is to bring soundcloud-rpc up to date and bring some features:
+
+- Add a Listen on SoundCloud Button
+- Change the `Play soundcloud` to `Listen to SoundCloud`
+- Custom message from Config (not sure 100%)
+- Take SoundCloud ID automaticaly (not sure 100%)
+
 ## Preview
 
 ### With artwork upload

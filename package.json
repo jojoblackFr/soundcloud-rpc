@@ -21,6 +21,6 @@
     "watch": "nodemon --watch src/ --watch config/ --exec npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "demaisj",
+  "author": "demaisj, jojoblackFr",
   "license": "ISC"
 }
