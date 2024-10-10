@@ -9,7 +9,7 @@
     "discord-rpc": "^4.0.1",
     "express": "^4.21.1",
     "hbs": "^4.2.0",
-    "socket.io": "^3.0.0",
+    "socket.io": "^4.8.0",
     "axios": "^1.7.7"
   },
   "devDependencies": {
