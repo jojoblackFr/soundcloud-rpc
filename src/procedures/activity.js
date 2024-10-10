@@ -46,7 +46,7 @@ module.exports = (config, rpc) => {
         function continueUpload() {
           let image_processor;
 
-          if (url == null || url.startsWith('http://a1.sndcdn.com/images/default_avatar_large.png')) {
+          if (url == null || url.startsWith('https://a1.sndcdn.com/images/default_avatar_large.png')) {
             debug("Artwork is placeholder, getting datauri from stock ones...");
             image_processor = image.imageDataFromFile(`assets/placeholder-${id % 11}.png`);
           }
