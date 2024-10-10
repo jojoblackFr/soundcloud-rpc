@@ -1,26 +1,30 @@
 const axios = require('axios');
 const trace = require('debug')('soundcloud-rp:trace');
-const DataURI = require('datauri');
+const DataURIParser = require('datauri/parser');
 const url_parser = require('url').parse;
 const path = require('path');
 
 function imageDataFromFile(pathname) {
   trace('image.imageDataFromFile', pathname);
 
-  const datauri = new DataURI();
+  // Import the DataURIParser class from the datauri package
+  const DataURIParser = require('datauri/parser');
+  const datauri = new DataURIParser();
 
   return new Promise((resolve, reject) => {
+    // Use the format method of the DataURIParser instance
     datauri
-      .on('encoded', resolve)
-      .on('error', reject)
-      .encode(pathname)
+      .encodeFromFile(pathname)
+      .then((content) => resolve(content))
+      .catch(reject);
   });
 }
 
 function imageDataFromUrl(url) {
-  trace('image.imageDataFromUrl', url);
+  trace('image.imageDataFromUrl', url, typeof url);
 
-  const datauri = new DataURI();
+  // Import the DataURIParser class from the datauri package
+  const datauri = new DataURIParser();
 
   return new Promise((resolve, reject) => {
     axios.get(url, {
@@ -29,10 +33,11 @@ function imageDataFromUrl(url) {
     .then((response) => {
       const buffer = response.data;
       let parsed = url_parser(url);
-      filename = path.basename(parsed.pathname);
+      const filename = path.basename(parsed.pathname);
 
-      datauri.format(filename, buffer);
-      resolve(datauri.content);
+      // Use the format method of the DataURIParser instance
+      const content = datauri.format(filename, buffer).content;
+      resolve(content);
     })
     .catch(reject);
   });
