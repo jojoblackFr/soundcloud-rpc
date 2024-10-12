@@ -15,11 +15,11 @@ Artwork upload is not available by default due to Discord's asset limit (150). I
 
 My goal is to bring soundcloud-rpc up to date and bring some features:
 
-- ✓ Switch from Deprecated Request Module to Axios
-- ✓ Add a `Listen on SoundCloud!` Button
-- ✗ Change the `Play soundcloud` to `Listen to SoundCloud`
-- ✗ Custom message from Config (not sure 100%)
-- ✓ Take SoundCloud ID automaticaly
+✓ Switch from Deprecated Request Module to Axios
+✓ Add a `Listen on SoundCloud!` Button
+✗ Change the `Play soundcloud` to `Listen to SoundCloud`
+✗ Custom message from Config (not sure 100%)
+✓ Take SoundCloud ID automaticaly
 
 ## Preview
 
