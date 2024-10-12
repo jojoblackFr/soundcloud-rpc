@@ -47,16 +47,8 @@ You will need to install [nodejs (v10) and npm (v6)](https://nodejs.org/en/downl
 1. Clone the repository somewhere on your hard drive or [unzip this archive](https://github.com/demaisj/soundcloud-rp/archive/master.zip) if you don't have git installed
 2. Open a terminal in the **soundcloud-rp** directory
 3. Install the dependencies with `npm install`
-4. Retrieve your Soundcloud ClientID :
-   - Open [Soundcloud](https://soundcloud.com/) then hit Ctrl+Shift+I to open the devtools
-   - Go to the **Network** tab
-   - Filter by `api-v2.soundcloud.com`
-   - Click on the first result. If there is no results, try changing page on Soundcloud to trigger some requests
-   - Scroll down to the **Query String Parameters** section
-   - Look for the **client_id** field and copy the value
-   - Paste it in the corresponding field of the `config/default.json` file
-5. Start the server with `npm run start`
-6. Additionnaly create a systemd service (linux) or startup shortcut (windows) to start the server on bootup
+4. Start the server with `npm run start`
+5. Additionnaly create a systemd service (linux) or startup shortcut (windows) to start the server on bootup
 
 **Browser:**
 1. Install a userscript extension for your browser like [Tampermonkey](https://tampermonkey.net/)
@@ -70,9 +62,8 @@ Here is a step by step guide to activate artwork upload:
 2. Go to the [developer interface](https://discordapp.com/developers/applications/me) of Discord
 3. Create a new app, give it a cool name and save it
 4. Paste the Client ID (found in App Details on the top of the page) into the `config/default.json` file
-5. ~~Scroll down and click "*Enable Rich Presence*"~~
-6. Hit save changes just in case
-7. Retrieve your APIKey
+5. Hit save changes just in case
+6. Retrieve your APIKey
    - Hit ctrl+shift+i to open the devtools
    - Go to the **Network** tab
    - Filter by `/api/`
@@ -80,4 +71,4 @@ Here is a step by step guide to activate artwork upload:
    - Scroll down to the **Request Headers** section
    - Look for the **authorization** field and copy the value
    - Paste it in the corresponding field of the `config/default.json` file (do not forget to wrap it in double quotes as in `"value"`)
-8. Restart your server and it should be ok!
+7. Restart your server and it should be ok!
