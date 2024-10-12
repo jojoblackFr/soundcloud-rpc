@@ -19,7 +19,7 @@ My goal is to bring soundcloud-rpc up to date and bring some features:
 - [x] Add a `Listen on SoundCloud!` Button
 - [ ] Change the `Play soundcloud` to `Listen to SoundCloud`
 - [ ] Custom message from Config (not sure 100%)
-- [ ] Take SoundCloud ID automaticaly (not sure 100%)
+- [x] Take SoundCloud ID automaticaly
 
 ## Preview
 
