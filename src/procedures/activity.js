@@ -169,7 +169,8 @@ module.exports = (config, rpc) => {
           buttons: [{
             label: "Listen on SoundCloud!",
             url: request_data.url
-          }]
+          }],
+          type: 2
         };
 
         debug("Everything ok, updating activity.", activity_data);

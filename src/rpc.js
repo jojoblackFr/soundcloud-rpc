@@ -1,4 +1,4 @@
-const { Client } = require('discord-rpc');
+const { Client } = require('@jojoblackfr/discord-rpc');
 const trace = require('debug')('soundcloud-rp:trace');
 const debug = require('debug')('soundcloud-rp:rpc');
 
